@@ -44,7 +44,8 @@ const msgSchema = new mongoose.Schema({
     appVersion: String,
     deviceMemory: Number,
     message: String,
-    date: String
+    date: String,
+    read: Boolean
 })
 const Msgs = new mongoose.model("msgs",msgSchema);
 
