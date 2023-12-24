@@ -63,6 +63,14 @@ app.get('/', async(req,res)=>{
     response.length !== 0 ? res.send(response): res.send([])
 })
 
+// api to mark msg as red
+app.post('/markRead', async (req,res)=>{
+    console.log(req.body);
+    const response = await Msgs.updateOne(req.body,{read:true});
+    console.log(response);
+    response.modifiedCount != 0 ? res.send(true): res.send(false)
+})
+
 
 app.listen(PORT,()=>{
     console.log('Server live on PORT:',PORT);
